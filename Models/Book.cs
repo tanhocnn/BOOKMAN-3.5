@@ -8,17 +8,70 @@ namespace BookMan.ConsoleApp.Models
 {
     public class Book
     {
-        public int Id { get; set; } = 1;
-        public string Authors { get; set; } = "Unknown author";
-        public string Title { get; set; } = "A new book";
-        public string Publisher { get; set; } = "Unknown publisher";
-        public int Year { get; set; } = 2018;
-        public int Edition { get; set; } = 1;
-        public string Isbn { get; set; }
-        public string Tags { get; set; }
+        private int _id = 1;
+        public int Id
+        {
+            get { return _id; }
+            set { if (value >= 1) _id = value; }
+        }
+        private string _authors;
+        public string Authors
+        {
+            get { return _authors; }
+            set { if (!string.IsNullOrEmpty(value)) _authors = value; }
+        }
+
+        private string _title = "A new book";
+        public string Title
+        {
+            get { return _title; }
+            set { if (!string.IsNullOrEmpty(value)) _title = value; }
+        }
+        
+        private string _publisher = "Unknown publisher";
+        public string Publisher
+        {
+            get { return _publisher; }
+            set { if (!string.IsNullOrEmpty(value)) _title = value; }
+
+        }
+
+        private int _year = 2018;
+        public int Year
+        {
+            get { return _year; }
+            set { if (value >= 1950) _year = value; }
+
+        }
+
+        private int _edition = 1;
+        public int Edition
+        {
+            get { return _edition; }
+            set { if (value >= 1) _edition = value; }
+
+        }
+
+        public string Isbn {get; set; } = "";
+        public string Tags { get; set; } = "";
         public string Description { get; set; } = "A new book";
-        public int Rating { get; set; } = 1;
+        private int _rating = 1;
+        public int Rating 
+        {
+            get { return _rating; }
+            set { if (value>=1 && value<=5) _rating = value; }
+        }
+
         public bool Reading { get; set; }
-        public string File { get; set; }
+        private string _file;
+        public string File
+        {
+            get { return _file; }
+            set { if (System.IO.File.Exists(value)) _file = value; }
+        }
+        public string FileName
+        {
+            get { return System.IO.Path.GetFileName(_file); }
+        }
     }
 }
