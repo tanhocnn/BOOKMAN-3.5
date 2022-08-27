@@ -8,17 +8,17 @@ namespace BookMan.ConsoleApp.Models
 {
     public class Book
     {
-        public int Id = 1;
-        public string Authors = "Unknown authors";
-        public string Title = "A new book";
-        public string Publisher = "Unknown publisher";
-        public int Year = 2018;
-        public int Edition = 1;
-        public string Isbn;
-        public string Tags;
-        public string Description = "A new book";
-        public int Rating = 1;
-        public bool Reading = false;
-        public string File;
+        public int Id { get; set; } = 1;
+        public string Authors { get; set; } = "Unknown author";
+        public string Title { get; set; } = "A new book";
+        public string Publisher { get; set; } = "Unknown publisher";
+        public int Year { get; set; } = 2018;
+        public int Edition { get; set; } = 1;
+        public string Isbn { get; set; }
+        public string Tags { get; set; }
+        public string Description { get; set; } = "A new book";
+        public int Rating { get; set; } = 1;
+        public bool Reading { get; set; }
+        public string File { get; set; }
     }
 }
